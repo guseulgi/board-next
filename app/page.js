@@ -1,8 +1,11 @@
-import {clientDB} from '../utils/database'
+import {clientDB} from '@/utils/database.js'
 
-export default function Home() {
+export default async function Home() {
 
-  const db = clientDB.db('forum');
+  const client = await clientDB;
+  const db = client.db('forum');
+  let result = await db.collection('post').find().toArray(); //컬렉션의 모든 Document 가져오기
+  console.log(result);
 
   return (
     <main >
