@@ -9,7 +9,8 @@ export default async function List() {
 
   return (
     <div className="list-bg">
-      {boardList.map((el, idx) => {
+      <Link prefetch={false} href='/write'>글쓰기</Link>
+      {boardList.reverse().map((el, idx) => {
         return (
           <div className="list-item" key={idx}>
             <Link href={'detail/' + el._id} prefetch={false} >
