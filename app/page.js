@@ -6,7 +6,7 @@ export default async function Home() {
   const client = await connectDB;
   const db = client.db('forum');
   let result = await db.collection('post').find().toArray(); //컬렉션의 모든 Document 가져오기
-  console.log(result);
+  // console.log(result);
 
   return (
     <main >
