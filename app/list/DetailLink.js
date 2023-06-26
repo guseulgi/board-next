@@ -8,6 +8,6 @@ export default function DetailLink(props) {
   return (
     <button onClick={() => {
       router.push(props.link);
-    }}>이동</button>
+    }}>자세히</button>
   )
 }
