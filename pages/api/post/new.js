@@ -10,7 +10,7 @@ export default async function handler(request, response) {
     
     try {
       await client.db('forum').collection('post').insertOne(request.body);
-      return response.json('글 작성 완료');
+      return response.redirect(302, '/list');
     } catch (error) {
       throw error;
     }

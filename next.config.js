@@ -8,7 +8,7 @@ const nextConfig = {
     config.plugins.push(new Dotenv({ silent: true }));
 
     return config;
-  }
+  },
 }
 
 module.exports = nextConfig
