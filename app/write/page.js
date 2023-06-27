@@ -7,7 +7,7 @@ export default function Write(){
       <form action="/api/post/new" method="POST">
         <input placeholder='제목' name='title' required/>
         <input placeholder='내용' name='content' required/>
-        <button type="submit">버튼</button>
+        <button type="submit">작성하기</button>
       </form>
     </div>
   )
