@@ -19,6 +19,7 @@ export default function ListItem({ boardList }) {
             <Link href={'detail/' + el._id} prefetch={false} >
               <h4>{el.title}</h4>
             </Link>
+            <span>작성자 : {el.author.name}</span>
             <p>{el.content}</p>
             {/* <DetailLink link={'detail/' + el._id}/> */}
             <Link href={'/modify/' + el._id} prefetch={false}> ✏️ </Link>
