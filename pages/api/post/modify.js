@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export default async function handler(requset, response) {
   const client = await connectDB;
-  console.log(requset.body)
+  // console.log(requset.body)
   
   if(requset.method == 'GET') {
 

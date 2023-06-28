@@ -1,16 +1,8 @@
 'use client'
 
 import Link from "next/link"
-import { useState } from "react";
-import { useEffect } from "react"
 
-export default function ListItem({ boardList }) {
-  // const [state, setState] = useState({ change : false });
-
-  // useEffect(() => {
-  //   setState({ change : true });
-  // }, [boardList]);
-
+export default function ListItem({ boardList, session }) {
   return (
     <>
       {boardList.map((el, idx) => {
@@ -22,8 +14,12 @@ export default function ListItem({ boardList }) {
             <span>작성자 : {el.author.name}</span>
             <p>{el.content}</p>
             {/* <DetailLink link={'detail/' + el._id}/> */}
-            <Link href={'/modify/' + el._id} prefetch={false}> ✏️ </Link>
-            <span onClick={(evt) => {
+            {session && session.user.email === el.author.email 
+              ? <Link href={'/modify/' + el._id} prefetch={false}> ✏️ </Link>
+              : null}
+
+            {session && session.user.email === el.author.email 
+              ? <span onClick={(evt) => {
               fetch('/api/post/delete',{
                 method : 'POST',
                 headers : {
@@ -56,6 +52,8 @@ export default function ListItem({ boardList }) {
               cursor : 'pointer',
               marginLeft : '15px',
             }}> 🗑️ </span>
+            : null}
+
             <span onClick={(evt) => {
               fetch('/api/ex/val')
             }} style={{
