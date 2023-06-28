@@ -4,8 +4,8 @@ import GithubProvider from "next-auth/providers/github";
 export const authOptions = {
   providers: [
     GithubProvider({
-      clientId: REACT_APP_GITHUB_ID.toString(),
-      clientSecret: REACT_APP_GITHUB_PW.toString(),
+      clientId: process.env.REACT_APP_GITHUB_ID,
+      clientSecret: process.env.REACT_APP_GITHUB_PW,
     }),
   ],
   secret : 'qwer1234'
