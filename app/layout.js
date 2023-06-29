@@ -15,7 +15,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let userInfo = await getServerSession(authOptions);
-  // console.log(userInfo);
 
   return (
     <html lang="en">
@@ -23,6 +22,7 @@ export default async function RootLayout({ children }) {
         <div className="navbar"> 
           <Link href="/" className="logo">Appleforum</Link> 
           <Link href="/list">List</Link> 
+          <Link href='/register'>Signup</Link>
           {userInfo === null 
             ? <LoginBtn /> 
             : <>
