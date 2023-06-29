@@ -9,6 +9,14 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 export const dynamic = 'force-dynamic';
 
 export default async function List() {
+  let session = await getServerSession(authOptions);
+
+  if(session === null) {
+    return (
+      <h2>로그인이 필요한 메뉴입니다.</h2>
+    )
+  }
+
   const client = await connectDB;
   let boardList = await client.db('forum').collection('post').find().toArray();
   boardList = boardList.map((el) => {
@@ -17,7 +25,6 @@ export default async function List() {
       _id : el._id.toString(),
     }
   });
-  let session = await getServerSession(authOptions);
 
   return (
     <div className="list-bg">

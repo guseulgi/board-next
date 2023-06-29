@@ -68,7 +68,7 @@ export const authOptions = {
     },
   },
 
-  secret : 'qwer1234',
+  secret : process.env.REACT_APP_NEXTAUTH_PW,
   adapter : MongoDBAdapter(connectDB)
 
 };

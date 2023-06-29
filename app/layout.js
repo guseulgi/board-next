@@ -27,7 +27,7 @@ export default async function RootLayout({ children }) {
             ? <LoginBtn /> 
             : <>
                 <LogOutBtn />
-                <span> {userInfo.user.name}</span>
+                <span> {userInfo.user.name}님, 어서오세요!</span>
               </>
           }
         </div>  

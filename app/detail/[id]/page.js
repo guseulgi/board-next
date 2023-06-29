@@ -7,8 +7,8 @@ export default async function Detail(props) {
 
   return (
     <div>
-      <h4>{result.title}</h4>
-      <p>{result.content}</p>
+      <h2>글제목 : {result.title}</h2>
+      <p>글내용 : {result.content}</p>
     </div>
   )
 }

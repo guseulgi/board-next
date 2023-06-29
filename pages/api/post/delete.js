@@ -23,6 +23,8 @@ export default async function handler(requset, response) {
       } else if(result.deletedCount === 0) {
         return response.redirect(500, '/list');
       }
+    } else {
+      alert('삭제할 수 없습니다.');
     }
   }
 }
