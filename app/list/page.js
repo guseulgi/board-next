@@ -11,6 +11,7 @@ export const dynamic = 'force-dynamic';
 export default async function List() {
   let session = await getServerSession(authOptions);
 
+  // 로그인이 되어야 접근이 가능하게 처리
   if(session === null) {
     return (
       <h2>로그인이 필요한 메뉴입니다.</h2>
@@ -19,6 +20,7 @@ export default async function List() {
 
   const client = await connectDB;
   let boardList = await client.db('forum').collection('post').find().toArray();
+  // boardList 내의 _id 가 ObjectId 타입이라 워닝을 발생하므로 아래와 같이 간단하게 만들어주는 과정을 추가함
   boardList = boardList.map((el) => {
     return {
       ...el,

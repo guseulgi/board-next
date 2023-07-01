@@ -1,6 +1,5 @@
 import { connectDB } from "@/utils/database";
 import bcrypt from 'bcrypt';
-import { ObjectId } from "mongodb";
 
 export default async function handler(requset, response) {
   if(requset.method == 'POST') {

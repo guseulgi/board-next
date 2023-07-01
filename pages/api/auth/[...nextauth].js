@@ -12,7 +12,7 @@ export const authOptions = {
       clientSecret: process.env.REACT_APP_GITHUB_PW,
     }),
     
-    //JWT 방식으로 아이디/비번으로 회원가입하기 위한 Provider
+    //JWT 방식으로 아이디/비번으로 회원가입하기 위한 Provider -> session 으로 동일하게 읽어올 수  있음
     CredentialsProvider({
       //1. 로그인페이지 폼 자동생성해주는 코드 
       name: "credentials",
@@ -43,7 +43,7 @@ export const authOptions = {
     })
   ],
 
-  //3. jwt 써놔야 잘됩니다 + jwt 만료일설정
+  //3. jwt 만료일설정
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60 //30일
