@@ -1,5 +1,6 @@
 'use client'
 
+import { notFound } from 'next/navigation';
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 
@@ -19,6 +20,10 @@ export default function Comment({ id }) {
 
     commentFetch();
   }, []);
+
+  if(commentList === null) {
+    return notFound();
+  }
 
   return (
       <div>
