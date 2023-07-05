@@ -4,6 +4,8 @@ import Link from 'next/link';
 import React from 'react'
 
 export default async function Write(){
+  let [src, setSrc] = useState('');
+
   const session = await getServerSession(authOptions);
   if(session === null) {
     return (
@@ -21,6 +23,32 @@ export default async function Write(){
         <input placeholder='내용' name='content' required/>
         <button type="submit">작성하기</button>
       </form>
+      <input type="file" accept="image/*" onChange={ 
+        async (e)=>{
+          let file = e.target.files[0]
+          let filename = encodeURIComponent(file.name)
+          let res = await fetch('/api/post/image?file=' + filename)
+          res = await res.json()
+
+          // //S3 업로드
+          // const formData = new FormData()
+          // Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
+          //   formData.append(key, value)
+          // })
+          // let result = await fetch(res.url, {
+          //   method: 'POST',
+          //   body: formData,
+          // })
+          // console.log(result)
+
+          // if (result.ok) {
+          //   setSrc(result.url + '/' + filename)
+          // } else {
+          //   console.log('실패')
+          // }
+        }
+      } />
+      <img src={src}/>
     </div>
   )
 }
