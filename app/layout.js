@@ -15,6 +15,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let userInfo = await getServerSession(authOptions);
+  let [mode, setMode] = useState('light')
 
   return (
     <html lang="en">
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }) {
                 <span> {userInfo.user.name}님, 어서오세요!</span>
               </>
           }
+          <button onClick={()=>{ setMode('dark') }}>다크모드</button> 
         </div>  
         {children}
       </body>
