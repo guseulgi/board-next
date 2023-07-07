@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
                 <span> {userInfo.user.name}님, 어서오세요!</span>
               </>
           }
-          <DarkMode />
+          <DarkMode mode={modeCookie} />
         </div>  
         {children}
       </body>
